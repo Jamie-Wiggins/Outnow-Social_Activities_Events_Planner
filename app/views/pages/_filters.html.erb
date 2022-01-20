@@ -1,0 +1,98 @@
+<div class="filtercontainer">
+  <label class="checkbox recommender-wrapper">
+    <input type="checkbox" id="recommendation-checkbox" />
+    <% if user_signed_in? %>
+      <% if current_user.twitter_username != NULL %>
+        <% Tweet.pull_tweets(current_user.twitter_username, current_user.id) %>
+      <% end %>
+    <% end %>
+    Recommend me personalised activities
+  </label>
+  <div class="slidecontainer">
+    <!-- Top Part - Checkbox to enable filter -->
+    <div class="label-container">
+      <label class="checkbox">
+        <input type="checkbox" id="distance-checkbox" />
+        Maximum Distance
+      </label>
+      <div>
+        <label class="currentvalue" id="distancevalue">
+          0
+        </label>
+        <label>
+          km
+        </label>
+      </div>
+    </div>
+    <!-- Middle part - Slider for filter -->
+    <input type="range" min="1" max="200" value="0" class="slider" id="distance"/>
+    <!-- Bottom part - Labels for slider values -->
+    <div class="slider-label-container">
+      <label>0km</label>
+      <label>100km</label>
+      <label>200km</label>
+    </div>
+  </div>
+  <div class="slidecontainer">
+    <div class="label-container">
+      <label class="checkbox">
+        <input type="checkbox" id="price-checkbox"  />
+        Maximum Price
+      </label>
+      <div>
+        <label>
+          £
+        </label>
+        <label class="currentvalue" id="pricevalue">
+          0
+        </label>
+      </div>
+    </div>
+    <input type="range" min="1" max="100" value="0" class="slider" id="price"/>
+    <div class="slider-label-container">
+      <label>£0</label>
+      <label>£50</label>
+      <label>£100</label>
+    </div>
+  </div>
+  <div class="slidecontainer">
+    <div class="label-container">
+      <label class="checkbox">
+        <input type="checkbox" id="capacity-checkbox"/>
+        Total Maximum Capacity
+      </label>
+      <div>
+        <label class="currentvalue" id="capacityvalue">
+          0
+        </label>
+        <label>
+          People
+        </label>
+      </div>
+    </div>
+    <input type="range" min="1" max="100" value="0" class="slider" id="capacity"/>
+    <div class="slider-label-container">
+      <span class="tag">
+        0
+        <span class="icon">
+          <i class="fas fa-child"></i>
+        </span>
+      </span>
+      <span class="tag">
+        50
+        <span class="icon">
+          <i class="fas fa-child"></i>
+        </span>
+      </span>
+      <span class="tag">
+        100
+        <span class="icon">
+          <i class="fas fa-child"></i>
+        </span>
+      </span>
+    </div>
+  </div>
+  <!-- APPLY FILTER BUTTON -->
+  <div class="button is-primary apply-filter-btn">Apply Filters
+  </div>
+</div>

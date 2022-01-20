@@ -1,0 +1,34 @@
+<header>
+  <%= render 'header' %>
+</header>
+<br>
+<br>
+<br>
+<br>
+<br>
+<body class="scrollable contact-body">
+  <div class="container is-fluid">
+    <div class="level-item has-text-centered">
+      <div class="box">
+        <h2 class="title"><%= 'Contact us' %></h2>
+        <%= form_tag(controller: 'pages', action: 'request_contact', method: 'post') do %>
+          <div class="control">
+            <label class="label">Name</label>
+            <%= text_field_tag(:name, '', title: 'enter name', size: 50) %>
+          </div>
+          <div class="control">
+            <label class="label">Email</label>
+            <%= text_field_tag(:name, '', title: 'enter email address', size: 50) %>
+          </div>
+          <div class="control">
+            <label class="label">Message</label>
+            <%= text_area_tag(:message, '', title: 'What do you want to tell us?', size: 50) %>
+          </div>
+          <div class="actions">
+            <%= submit_tag "Submit", class: "button"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>

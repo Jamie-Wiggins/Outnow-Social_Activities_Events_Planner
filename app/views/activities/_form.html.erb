@@ -1,0 +1,107 @@
+<%= simple_form_for(@activity,remote: true) do |f| %>
+  <%= f.error_notification %>
+  <div class="f-title field">
+    <div class="control">
+      <%= f.input :title, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+  <div class="f-capacity field">
+    <div class="control">
+      <%= f.input :attendee_max, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+  <div class="f-description field">
+    <div class="control">
+      <%= f.input :description, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+  
+  <div class="f-picker picker-wrapper">
+    <div class="button picker-btn">
+      <span class="icon is-small"><i class="fas fa-map-marked-alt fa-2x"></i></span>
+    </div>
+    <h3 class="picker-label">Please Pick a Location</h3>
+  </div>
+
+  
+  <div class="f-category field">
+    <label class="label">Category</label>
+    <div class="control has-icons-left">
+      <span class="select">
+        <%= f.input_field :color, collection:@categories.map { |c| [c.category, c.color] }, prompt: "Select Category" %>
+      </span>
+      <span class="icon is-small is-left">
+        <i class="fa fa-tag"></i>
+      </span>
+    </div>
+  </div>
+  <div class="f-icon field">
+    <label class="label">Icon</label>
+    <div class="control has-icons-left">
+      <span class="select">
+        <%= f.input_field :icon, collection:@icons.map { |c| [c.name, c.fasRef] }, prompt: "Select Category" %>
+      </span>
+      <span class="icon is-small is-left">
+        <i class="fa fa-tag"></i>
+      </span>
+    </div>
+  </div>
+  <div class="f-cost field">
+    <div class="control">
+      <%= f.input :cost, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+  <div class="f-tags field">
+    <div class="control">
+      <%= f.input :tags, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+  
+  <div class="f-start field">
+    <label class="label">Start Time</label>
+    <div class="control">
+      <%= f.datetime_select :start_time, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+  <div class="f-finish field">
+    <label class="label">End Time</label>
+    <div class="control">
+      <%= f.datetime_select :finish_time, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+  <div class="f-latlong latlongwrapper">
+    <div class="field">
+      <div class="control lng-control">
+        <%= f.input :longitude, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' }, class: 'long_input', :readonly => true %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="control lat-control">
+        <%= f.input :latitude, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' }, class: 'lat_input', :readonly => true %>
+      </div>
+    </div>
+  </div>
+  
+  <div class="f-image field">
+    <label class="label">Add an Image</label>
+    <div class="control">
+      <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+      <%= %>
+    </div>
+  </div>
+  <div class="f-submit field">
+    <div class="control">
+      <%= f.hidden_field :host, :value => current_user.username %>
+    </div>
+    <div class="f-submit field">
+    <div class="control">
+      <%= f.hidden_field :host_rating, :value => @final_rating2 %>
+    </div>
+    <div class="field">
+      <div class="control">
+        <%= f.hidden_field :status, :value => 1 %>
+      </div>
+    </div>
+    <%= f.button :submit, class: 'button is-info' %>
+  <% end %>
+  <br/>

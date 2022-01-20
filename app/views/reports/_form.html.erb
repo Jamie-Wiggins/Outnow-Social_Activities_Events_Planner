@@ -1,0 +1,30 @@
+<%# A form for reports %>
+<%= simple_form_for([@chatroom, @chatroom.reports.build]) do |f| %>
+  <%= f.error_notification %>
+   
+  <div class="field">
+    <div class="control">
+      <%= f.input :title, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+
+   <div class="field">
+      <label class="label">User</label>
+      <div class="control has-icons-left">
+        <span class="select">
+          <%= f.input_field :username, collection:@chatroom.chatroom_users.map { |c| [c.hidden_name, c.id] }, prompt: "Select Category" %>
+        </span>
+        <span class="icon is-small is-left">
+          <i class="fa fa-tag"></i>
+        </span>
+      </div>
+    </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.input :content, input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+    </div>
+  </div>
+  
+  <%= f.button :submit, class: 'button is-info' %>
+<% end %>

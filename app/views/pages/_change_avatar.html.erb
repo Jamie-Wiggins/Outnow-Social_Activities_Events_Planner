@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Pick a New Avatar: </h1>
+  <%= simple_form_for(user, url: change_avatar_path) do |f| %>
+    <div> <%= f.error_notification %> </div>
+    <div class="field">
+      <div class="control">
+        <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png'%>
+      </div>
+    </div>
+    <%= f.button :submit, "Submit", class:"button is-info is-medium" %>
+  <% end %>
+</div>

@@ -1,0 +1,16 @@
+.reports-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    .column.is-4 {
+        width: 50%;
+        .title.is-3 {
+
+        }
+        form {
+            #report_content {
+                height: 200px;
+            }
+        }
+    }
+}

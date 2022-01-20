@@ -1,0 +1,16 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import 'colours';
+body.index{
+    background-color: white;
+    div.container2{
+        margin-left: 200px;
+        div.row{
+            align-self: center;
+        }
+    }
+}
+.scrollable {
+    overflow: auto;
+    }

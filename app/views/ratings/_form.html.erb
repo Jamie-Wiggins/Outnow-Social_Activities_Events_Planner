@@ -1,0 +1,26 @@
+<%= simple_form_for([@chatroom, @chatroom.ratings.build]) do |f| %>
+   <div class="field">
+      <label class="label">Rating</label>
+      <div class="control has-icons-left">
+        <span class="select">
+          <%= f.input_field :rating, collection: [1, 2, 3, 4, 5], prompt: "Select Rating"%>
+        </span>
+        <span class="icon is-small is-left">
+          <i class="fa fa-tag"></i>
+        </span>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">User</label>
+      <div class="control has-icons-left">
+        <span class="select">
+          <%= f.input_field :rating_for, collection:@chatroom.chatroom_users.map { |c| [c.hidden_name, c.user.id] }, prompt: "Select Category" %>
+        </span>
+        <span class="icon is-small is-left">
+          <i class="fa fa-tag"></i>
+        </span>
+      </div>
+    </div>
+
+    <%= f.button :submit, 'rate', class: 'button is-info' %>
+<% end %>

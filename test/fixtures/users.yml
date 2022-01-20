@@ -1,0 +1,20 @@
+userJamie:
+  email: jamie.wiggins@gmail.com
+  first_name: jamie
+  last_name: wiggins
+  username: jamie
+  encrypted_password: <%= User.new.send(:password_digest, 'jamie12345')%>
+  user_tags: "football, football, snooker"
+  twitter_username: "BBCNews"
+  #avatar: fixture_file_upload('test/fixtures/files/1.png', 'image/png')
+
+# user1:
+#   email: jamiewiggins@gmail.com
+#   first_name: jamie
+#   last_name: wiggins
+#   username: james
+#   encrypted_password: <%= User.new.send(:password_digest, 'jamie12345')%>
+#   user_tags: "football, football, snooker"
+#   twitter_username: "BBCNews"
+#   avatar: fixture_file_upload('test/fixtures/files/1.png', 'image/png')
+

@@ -1,0 +1,25 @@
+<header>
+  <%= render 'header' %>
+</header>
+<body class="scrollable">
+<div class="columns profcol">
+  <div class="column is-one-quarter">
+    <div class="sbox">
+      <article class="media">
+        <div class="media-content">
+        <div class="name-container">
+          <h1 class="title"><%= current_user.username %>'s Page</h1>
+          <h2 class="subtitle">This page has a list of activities you are hosting or attending.</h2>
+            <p class="rating-value"><%= @final_rating %></p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+<div class="card-grid">
+<%= render @userattended %>
+</div>
+<div>
+</div>
+</body>

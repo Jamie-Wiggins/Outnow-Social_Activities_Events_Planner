@@ -1,0 +1,125 @@
+:root {
+  //LIGHT
+  //Text
+  --ltext-primary: #4A4A4A;
+  --ltext-secondary: grey;
+  --ltext-tertiary: rgb(0, 0, 0);
+  --ltext-colourful: #{#58BB45};
+
+  --ltext-primary-hover: #{#2b3252};
+  --ltext-secondary-hover: #{rgb(90, 90, 90)};
+  --ltext-tertiary-hover: #{rgb(0, 75, 236)};
+
+  --ltext-primary-focus: #{rgb(34, 0, 0)};
+  --ltext-secondary-focus: #{rgb(34, 0, 0)};
+  --ltext-tertiary-focus: #{rgb(34, 0, 0)};
+
+  //Background
+  --lbackground-primary: white;
+  --lbackground-border: #{rgb(235, 235, 235)};
+  --lbackground-secondary: rgb(224, 224, 224);
+  --lbackground-tertiary: rgb(216, 216, 216);
+
+  --lbackground-primary-hover: #{rgb(117, 146, 209)};
+  --lbackground-secondary-hover: #{rgb(117, 146, 209)};
+  --lbackground-tertiary-hover: #{rgb(117, 146, 209)};
+
+  --lbackground-primary-focus: #{rgb(247, 0, 152)};
+  --lbackground-secondary-focus: #{rgb(247, 0, 152)};
+  --lbackground-tertiary-focus: #{rgb(247, 0, 152)};
+
+  //DARK
+  //Text
+  --dtext-primary: #{#D1DDDE};
+  --dtext-secondary: #{#769297};
+  --dtext-tertiary: #FFFFFF;
+  --dtext-colourful: #{rgb(233, 128, 128)};
+
+  --dtext-primary-hover: #{rgb(0, 216, 115)};
+  --dtext-secondary-hover: #{rgb(0, 216, 115)};
+  --dtext-tertiary-hover: #{rgb(0, 216, 115)};
+
+  --dtext-primary-focus: #{rgb(236, 96, 96)};
+  --dtext-secondary-focus: #{rgb(236, 96, 96)};
+  --dtext-tertiary-focus: #{rgb(236, 96, 96)};
+
+  //Background
+  --dbackground-primary: #{#36393F};
+  --dbackground-border: #{#242529};
+  --dbackground-secondary: #{#2F3136};
+  --dbackground-tertiary: #{#202225};
+
+  --dbackground-primary-hover: #{rgb(117, 146, 209)};
+  --dbackground-secondary-hover: #{rgb(117, 146, 209)};
+  --dbackground-tertiary-hover: #{rgb(117, 146, 209)};
+
+  --dbackground-primary-focus: #{rgb(247, 0, 152)};
+  --dbackground-secondary-focus: #{rgb(247, 0, 152)};
+  --dbackground-tertiary-focus: #{rgb(247, 0, 152)};
+}
+
+//LIGHT
+//Text
+$ltp: var(--ltext-primary);
+$lts: var(--ltext-secondary);
+$ltt: var(--ltext-tertiary);
+$ltc: var(--ltext-colourful);
+
+$ltph: var(--ltext-primary-hover);
+$ltsh: var(--ltext-secondary-hover);
+$ltth: var(--ltext-tertiary-hover);
+
+$ltpf: var(--ltext-primary-focus);
+$ltsf: var(--ltext-secondary-focus);
+$lttf: var(--ltext-tertiary-focus);
+
+//Background
+$lbp: var(--lbackground-primary);
+$lbb: var(--lbackground-border);
+$lbs: var(--lbackground-secondary);
+$lbt: var(--lbackground-tertiary);
+
+$lbph: var(--lbackground-primary-hover);
+$lbsh: var(--lbackground-secondary-hover);
+$lbth: var(--lbackground-tertiary-hover);
+
+$lbpf: var(--lbackground-primary-focus);
+$lbsf: var(--lbackground-secondary-focus);
+$lbtf: var(--lbackground-tertiary-focus);
+
+//DARK
+//Text
+$dtp: var(--dtext-primary);
+$dts: var(--dtext-secondary);
+$dtt: var(--dtext-tertiary);
+$ltc: var(--ltext-colourful);
+
+$dtph: var(--dtext-primary-hover);
+$dtsh: var(--dtext-secondary-hover);
+$dtth: var(--dtext-tertiary-hover);
+
+$dtpf: var(--dtext-primary-focus);
+$dtsf: var(--dtext-secondary-focus);
+$dttf: var(--dtext-tertiary-focus);
+
+//Background
+$dbp: var(--dbackground-primary);
+$dbb: var(--dbackground-border);
+$dbs: var(--dbackground-secondary);
+$dbt: var(--dbackground-tertiary);
+
+$dbph: var(--dbackground-primary-hover);
+$dbsh: var(--dbackground-secondary-hover);
+$dbth: var(--dbackground-tertiary-hover);
+
+$dbpf: var(--dbackground-primary-focus);
+$dbsf: var(--dbackground-secondary-focus);
+$dbtf: var(--dbackground-tertiary-focus);
+
+//Non Colour styles
+figure.image.is-400x100 {
+  max-width: 200px;
+  max-height: 50px;
+  margin: 0;
+  margin-right: 10px;
+}

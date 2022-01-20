@@ -1,0 +1,12 @@
+<%= simple_form_for([@activity.chatroom, @activity.chatroom.chatroom_users.build], remote: true) do |f| %>
+    <% if @activity.cost.to_i > 0%>
+    <p>This activity costs £<%= @activity.cost / @activity.attendee_max %> to attend.</p>
+    <%= render 'chatroom_users/payment_form'%>
+    <%= f.button :submit, 'Pay & Join Now', class: 'button is-info' %>
+    <% else %>
+      <p>This activity is free to join</p>
+      <%= f.button :submit, 'Join Activity', class: 'button is-info' %>
+    <% end %>
+<% end %>
+
+

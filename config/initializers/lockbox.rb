@@ -1,0 +1,1 @@
+Lockbox.master_key = Rails.application.credentials.lock_box_key

@@ -1,0 +1,7 @@
+<%# creates the user activity without reloading the page %>
+<% if  @chatroom.chatroom_users.count > @chatroom.attendee_max %>
+  <p>activity full</p>
+<%else%>
+$("<%= escape_javascript(render(@chatroom_users)) %>").appendTo('#activity-user_activity');
+$("#nkemisepic").text("<%= @chatroom.chatroom_users.count %>")<%# change nkem is epic %>
+<% end %>

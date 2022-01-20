@@ -1,0 +1,7 @@
+<%# displays the new form render for activity %>
+$(".activity-modal-content").append("<%= j render 'form', activity: @activity %>")
+$('.picker-btn').click(function () {
+$('.create-activity-modal').removeClass('is-active');
+$('.create-activity-modal.modal').removeClass('is-active');
+window.pickerClicked();
+});

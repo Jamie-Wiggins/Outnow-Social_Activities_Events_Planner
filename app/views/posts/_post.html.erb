@@ -1,0 +1,12 @@
+<body id="show">
+  <div class="box about-box">
+    <figure class="image is-100x100">
+      <% if post.image.present? %>
+        <%= image_tag(post.image.url, size: '250x250') %>
+      <% end %>
+    </figure>
+    <h3><strong><%= post.title %></strong></h3>
+    <h4 class="cat"><%= post.created_at.to_time %></h4>
+    <p class="post-content"><%= post.content%><p>
+  </div>
+</body>

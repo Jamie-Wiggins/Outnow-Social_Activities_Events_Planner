@@ -1,0 +1,10 @@
+development:
+  adapter: async
+
+test:
+  adapter: test
+
+production:
+  adapter: redis
+  url: <%= ENV.fetch("REDIS_url") { "redis://redistogo:907f01bda34e16717ae4f59797db40b9@crestfish.redistogo.com:11736/" } %>
+  channel_prefix: outnow_group13

@@ -1,0 +1,16 @@
+# testActivity:
+#   description: "Activity Description"
+#   title: "Title"
+#   host: "host"
+#   attendee_max: 5
+#   start_time: <%= DateTime.now %>
+#   longitude: 45
+#   latitude: 45
+#   icon: "jamie"
+#   tags: "jamie"
+#   color: "#ffffff"
+#   status: 1
+#   cost:
+#   image: ""
+#   finish_time: <%= DateTime.now + 5.days %>
+#   host_rating: 5

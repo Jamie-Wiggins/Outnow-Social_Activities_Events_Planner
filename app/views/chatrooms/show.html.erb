@@ -1,0 +1,62 @@
+<main>
+  <div class="sidebar-container">
+    <%= render 'pages/sidebar' %>
+  </div>
+  <div class="chat-container" id="chat-container">
+    <div class="chat-header">
+      <h1 class="whitespace"></h1>
+      <div class="title">
+        <span class="icon">
+          <i class="<%= @activity.icon %>"></i>
+        </span>
+        <h1>
+          <%= @chatroom.name %>
+        </h1>
+      </div>
+      <div class="right-of-header">
+        <%= link_to('Open Location in Maps', "https://www.google.com/maps/@#{@chatroom.activity.latitude},#{@chatroom.activity.longitude},16z", class: "button tag is-success",target: :_blank)%>
+        <% @chatroom.chatroom_users.each do |cu| %>
+          <% if current_user.id == cu.user_id && cu.hidden_name == "host" %>
+            <%= link_to 'Edit activity', edit_activity_path(@activity), class: "button tag is-primary"%>
+            <%= link_to 'Delete', activity_path(@activity), method: :delete, data: { confirm: "Delete Activity?" }, class: "button tag is-danger" %>
+          <% elsif current_user.id == cu.user_id%>
+            <%= link_to 'Leave', chatroom_chatroom_users_path(@activity.chatroom), method: :delete,class: "button tag is-warning" %>
+          <% end %>
+        <% end %>
+        <%= link_to('Report A User', new_chatroom_report_path(@activity.chatroom), class: "button tag is-danger")%>
+      </div>
+    </div>
+    <%# MESSAGES BEGIN HERE%>
+    <div id="senderCheck" data-behavior='messages' data-chatroom-id='<%= @chatroom.id %>' data-user='<%= current_user.id %>'>
+      <p class= "messages-beginning">-- Beginning of Messages --</p>
+      <% @messages.each do |m| %>
+        <% if m.user.username == current_user.username %>
+          <% @jamie.each do |j|%>
+            <% if j.user_id == m.user_id %>
+              <p class="align-right"><%= m.body %></p>
+              <p class="sub-align-right">Sent by <i class="pname"><%= j.hidden_name %></i> on <%= m.created_at.strftime("%b %d, %I:%M%P") %><p>
+            <% end %>
+          <% end %>
+        <% else %>
+          <% @chatroom.chatroom_users.each do |j|%>
+            <% if j.user_id == m.user_id %>
+              <p class="left-msg"><%= m.body %></p>
+              <p class="left-sub">Sent by <i class="pname"><%= j.hidden_name %></i> on <%= m.created_at.strftime("%b %d, %I:%M%P") %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <p class= "messages-beginning">-- New Messages --</p>
+    <div class="appendix-container">
+      <div class="left-dix">
+      </div>
+      <div class="right-dix">
+      </div>
+    </div>
+    <%= simple_form_for [@chatroom, Message.new] do |f|%>
+      <%= f.text_area :body, rows: 1, placeholder: "Type a message...",wrap: "off"%>
+      <button id="button_message" type="button">Send Message</button>
+    <% end %>
+  </div>
+</main>

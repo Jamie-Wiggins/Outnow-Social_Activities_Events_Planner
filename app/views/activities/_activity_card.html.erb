@@ -1,0 +1,50 @@
+<div class="card-image">
+  <div class="b-right">
+    <div class="tagline"><p>Expand To Join<p></div>
+    <div class="button expand-btn"><span class="icon"><i class="fa fa-expand" aria-hidden="true"></i></span></div>
+  </div>
+    <figure class="image">
+    <% if @activity.image.present? %>
+      <%= image_tag(@activity.image.url, size: '250x250') %>
+    <% end %>
+    </figure>
+  </div>
+<div class="card-content">
+  <span class="icon is-large">
+    <i class="<%= @activity.icon %> fa-2x"></i>
+  </span>
+  <p class="card-title"><%= @activity.title %></p>
+  <p class="card-host"><%= @activity.host %></p>
+  <p class="card-rating"><i class="fas fa-trophy"></i> <%= @activity.host_rating%></p>
+  <p class="card-time"><%= readable_time(@activity.start_time) %></p>
+
+  <p class="card-capacity"><i class="fas fa-user"></i> <%= @activity.chatroom.chatroom_users.count %>/<%= @activity.attendee_max %></p>
+
+  <p class="card-description"><%= @activity.description %></p>
+  <div>
+    <script>
+      var tags = "<%= @activity.tags %>";
+      tags = tags.split(/[ ,]+/);
+      if(tags.length <= 1) {
+        $('.card-tags').append('<span class="tag">'+ tags +'</span>')
+      } else if(tags.length >=1) {
+        tags.forEach(function(tag) {
+          $('.card-tags').append('<span class="tag">'+ tag +'</span>')
+        });
+      }
+    </script>
+  </div>
+  <% if !current_user.chatroom_users.exists?(:chatroom_id => @activity.id) && @activity.chatroom.chatroom_users.count < @activity.attendee_max %>
+
+  
+  <%= render 'chatroom_users/form' %>
+
+  
+  <% elsif @activity.chatroom.chatroom_users.count >= @activity.attendee_max %>
+    <p class="join-btn">Activity Full</p>
+  <% elsif current_user.chatroom_users.exists?(:chatroom_id => @activity.id)%>
+    <p class="join-btn">Joined</p>
+  <% end %>
+  <div class="card-tags">
+  </div>
+</div>

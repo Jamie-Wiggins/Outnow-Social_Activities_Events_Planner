@@ -1,0 +1,33 @@
+@import 'colours';
+.marker {
+  background-image: red;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.fa-stack.fa-2x {
+  position: relative;
+  .activity-icon {
+    margin: 6px 12px 12px 12px;
+    position: absolute;
+  }
+}
+.mapboxgl-user-location-accuracy-circle {
+  z-index: -1;
+}
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+  border-top-color: $lbp !important;
+}

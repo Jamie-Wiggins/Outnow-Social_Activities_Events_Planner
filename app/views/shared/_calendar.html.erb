@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+<%= month_calendar events: @userattended, previous_link: events_ajax_previous_link, next_link: events_ajax_next_link do |date, activities| %>
+  <%= date.to_formatted_s(:short) %>
+  <% activities.each do |activity| %>
+    <div>
+      <%= activity.title%>
+    </div>
+  <% end %>
+<% end %>
+<% end %>

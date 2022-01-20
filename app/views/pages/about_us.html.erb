@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html style="bakcground-color:grey;">
+  <header>
+    <%= render 'header' %>
+  </header>
+  <nav class="navbar" role="navigation">
+  </nav>
+  <body class="scrollable about-body">
+    <div class="background-image">
+      <%= image_tag("about.png")%>
+    </div>
+    <div class="container is-fluid">
+      <section class="hero">
+        <section class="container">
+          <h3 class="title compnews">Company news</h3>
+          <div class="posts-container">
+            <%= render @posts, post: @posts %>
+          </div>
+          <div class="about-box box">
+            <br>
+            <div>
+              <h4 class="title is-4">
+                Why OutNow?
+              </h4>
+              <div>
+                <h2 class="subtitle is-5">
+                  Background
+                </h2>
+                <p>
+                  As you grow older it can become increasingly difficult to make new friends and expand pre-established friendship groups. Making a new
+                  friend for an adult is often far more complex than it was as a child. This could be a contributing factor to the ever-increasing loneliness
+                  epidemic facing today’s society.  A report published by the UK Office for National Statistics[1] states that
+                  around 60% of those that don’t live with anyone feel at least “occasionally” lonely, and 40% of those that live with others feel the
+                  same. Another study conducted in 2017-18 by the Department for Digital, Culture, Media & Sport[2] concluded that 71% of people have at
+                  some point felt lonely with a further 6% admitting to having thesefeelings often. Although both                        
+                  reports detail further statistics, the overlying message is that adults are struggling to establish connections with each other.
+                  Humans are naturally social and connecting via face-to-face interaction is vital for a happy and healthy life[3]. However,
+                  meeting someone completely new as an adult with no prior connection can be daunting and as a result many will avoid
+                  doing this. This could be a potential cause for despair amongst adults as they feel they have nothing to do or no one to
+                  spend time with, and that there is little they can do about it.
+                  The market is saturated with dating apps like Tinder and Bumble, as well as social meeting apps like Meetup and
+                  FriendMatch. All these apps excel in their intended purpose, but none of them provide anonymity. A staggering 80% of
+                  people judge others based on their looks alone according to a national survey by Allure[4]. Prejudgment is an unfortunate
+                  byproduct of social media and could prevent people from meeting others who they could have been friends with. OutNow
+                  looks to address all these issues with the overall goal of improving loneliness amongst adults.
+                </p>
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="about-box box">
+            <div>
+              <h2 class="subtitle is-5">
+                How does OutNow aim to help?
+              </h2>
+              <p>
+                OutNow will provide the basis for new adult friendships from simply having a common interest ‘the activity’. It will make
+                organising and finding adults to do activities with far more streamlined, removing complications that come along with
+                being an adult and subsequently eliminating as many barriers as possible, in order to combat loneliness.
+                The application will present a map with locations of activities nearby the users (adults), who can attend or create an
+                activity of any type, which will be contained in predefined categories. Users will then join an anonymous real-time group
+                chats and attend the activity meeting new people who they could develop friendships with. Users are unlikely to want to
+                travel far, so by using the user’s location it is possible to tailor activities using an algorithm in addition to a host of other
+                filtering options.
+                Hiding user’s personal data and replacing it with randomly generated data can remove associated prejudice before a face
+                to face meeting. This way most interactions will occur when meeting each other in person at the activity, avoiding a
+                common problem with today's social media. Naturally this raises some security concerns, and to help combat dangerous
+                situations there will be measures in place including the host being able to set age limits, the host name and age visible to
+                attendees and a reporting system. Hopefully this will prevent uncomfortable situations and allow for safe interactions and
+                avoid inappropriate behaviour all together. The application will open new doors to adults who feel isolated and unable to
+                make friends, and foster friendships built around interests and create lasting connections between people.
+              </p>
+            </div>
+          </div>
+          <br>
+          <br>
+          <br>
+          <div class="about-box box">
+            <h2 class="subtitle is-7">
+              References
+            </h2>
+            <p class="ap">
+              [1] Government National Statistics, loneliness stats, [online] Available at:
+              https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/articles/lonelinesswhatcharacteristicsandcircumstancesareassociatedwithfeelinglonely/2018-04-10
+            </p>
+            <p class="ap">
+              [2] Government Lonely survey, [online] Available at:
+              https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/771482/Community_Life_Survey_Focus_on_Loneliness_201718.pdf
+            </p>
+            <p class="ap">
+              [3] Social media not so Social, Applied Psychology State, [online] Available at: 
+              https://sites.psu.edu/aspsy/2017/03/18/social-media-not-so-social
+            </p>
+            <p class="ap">
+              [4] Allure, national judgment survey, [online] Available at: 
+              https://www.allure.com/story/national-judgement-survey-statistics
+            </div>
+          </section>
+        </div>
+      </div>
+      <br>
+    </body>
+  </html>

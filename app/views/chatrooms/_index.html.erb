@@ -1,0 +1,47 @@
+<div class="chat-block-wrapper">
+  <% if current_user.chatroom_users.each do |chatUser| %>
+    <% if chatUser.chatroom.activity.status.to_i == 1 && DateTime.now < chatUser.chatroom.activity.finish_time.to_datetime %>
+      <div class="chat-block green" style="border-right: 5px solid green;" onclick="location.href='/chatrooms/<%= chatUser.chatroom.activity.id %>'">
+        <div class="chatroom-img-wrapper">
+          <% if chatUser.chatroom.activity.image.present? %>
+            <%= image_tag chatUser.chatroom.activity.image.url %>
+          <% end %>
+        </div>
+        <div class="chatroom-text-wrapper">
+          <h1><%= chatUser.chatroom.activity.chatroom.name %></h1>
+          <% if chatUser.chatroom.activity.chatroom.messages.exists? %>
+            <p class="latest-message"><%= chatUser.chatroom.activity.chatroom.messages.last.body %></p>
+          <% else %>
+            <p class="latest-message">Be the first to say something...</p>
+          <% end %>
+          <div class="bottom-text">
+            <div class="neighboured">
+              <span class="tag is-success" >Attendance Confirmed</span>
+            </div>
+            <span class="time time-left-to-confirm">Starting <%= readable_time(chatUser.chatroom.activity.start_time) %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% if chatUser.chatroom.activity.status.to_i == 0 && DateTime.now < jamieTime(chatUser.chatroom.activity.finish_time.to_datetime)%>
+      <div class="chat-block yellow" style="border-right: 5px solid orange;">
+        <div class="chatroom-img-wrapper">
+          <% if chatUser.chatroom.activity.image.present?%>
+            <%= image_tag chatUser.chatroom.activity.image.url %>
+          <% end %>
+        </div>
+        <div class="chatroom-text-wrapper">
+          <h1><%= chatUser.chatroom.activity.chatroom.name %></h1>
+          <div class="bottom-text">
+            <div class="neighboured">
+              <%= link_to('Rate Users', new_chatroom_rating_path(chatUser.chatroom), class: "button rate-btn tag is-info")%>
+              <span class="tag is-danger" >Event Finished</span>
+            </div>
+            <span class="time time-left-to-confirm">Event Ended <%= readable_time(chatUser.chatroom.activity.finish_time) %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+</div>

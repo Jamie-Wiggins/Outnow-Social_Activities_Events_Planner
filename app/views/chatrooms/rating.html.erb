@@ -1,0 +1,14 @@
+<% @userRating.each do |user| %>
+  <p><%= user.hidden_name %></p>
+<% end %>
+<header>
+  <%= render '/pages/header' %>
+</header>
+<body class="scrollable">
+  <div class="reports-wrapper columns is-centered">
+    <div class="column is-4">
+      <h1 class="title is-3">Rate Users</h1>
+      <%= render 'ratings/form' %>
+    </div>
+  </div>
+</body>

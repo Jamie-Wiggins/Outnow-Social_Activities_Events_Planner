@@ -1,0 +1,72 @@
+<div class="small-header">
+  <figure class="home-link image is-100x100" onclick="location.href='/'">
+      <%= image_tag 'logo.svg' %>
+      <h1>OutNow</h1>
+    </figure>
+  <div class="footer-wrapper">
+  <%= link_to 'Contact',contact_path  %>
+  <%= link_to 'About Us',about_path  %>
+  <%= link_to 'Legal',legal_path  %>
+</div>
+  <div class="whitespace"></div>
+  <div class="right-sidebar smallheader">
+    <div class="right-container-wrapper">
+      <div class="right-container">
+        <% if user_signed_in? %>
+          <% if current_user.avatar.url.present? %>
+            <div class="profile-button">
+              <%= image_tag(current_user.avatar.url) %>
+            </div>
+          <% else %>
+            <div class="button is-medium right-button profile-button">
+              <span class="icon is-large"><i class="far fa-user fa-2x"></i></span>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="button is-medium right-button profile-button">
+            <span class="icon is-large"><i class="far fa-user fa-2x"></i></span>
+          </div>
+        <% end %>
+      </div>
+      <% if user_signed_in? %>
+        <div class="right-subcontainer">
+          <figure class="image is-100x100">
+            <% if current_user.avatar.url.present? %>
+              <%= image_tag current_user.avatar.url %>
+            <% else %>
+              <span class="icon is-large"><i class="far fa-user fa-2x"></i></span>
+            <% end %>
+          </figure>
+          <h1 class="username-display"><%= current_user.username %></h1>
+          <div class="profile-button-wrapper">
+            <%= link_to "View Profile","/user/#{current_user.username}",class: "button view-profile-button"%>
+            <%= link_to "Edit Profile",edit_user_registration_path,class: "button view-profile-button"%>
+          </div>
+          <div class="pre_bottom_wrapper">
+            <div class="right-button calendar-button">
+              <span class="icon is-large"><i class="fas fa-calendar-alt fa-2x"></i></span>
+            </div>
+            <%= link_to "Log Out",destroy_user_session_path, method: :delete,class: "button"%>
+            <div class="right-button theme-button">
+              <span class="icon is-large"><i class="fas fa-adjust fa-2x"></i></span>
+            </div>
+          </div>
+          <%= render 'shared/footer'%>
+          <%= content_tag :element, 'text', class: 'change-avatar-button' do %>
+            <span class="icon is-small"><i class="fas fa-camera"></i></span>
+          <% end %>
+        </div>
+        <div class="right-avatarswap-container">
+          <% if user_signed_in? %>
+            <%= render '/pages/change_avatar', user: current_user %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="right-subcontainer">
+          <%= link_to "Log In",new_user_session_path,class: "button"%>
+          <%= link_to "Register",new_user_registration_path,class: "button"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
